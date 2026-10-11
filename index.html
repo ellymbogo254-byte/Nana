@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Nana 💜</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  color: white;
+  text-align: center;
+  background:
+    radial-gradient(circle at top, #542080, transparent 50%),
+    linear-gradient(145deg, #10051e, #25083c, #090518);
+  overflow-x: hidden;
+}
+
+main {
+  width: min(92%, 650px);
+  margin: auto;
+  padding: 35px 0 45px;
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  color: #ff9be8;
+  font-size: clamp(2.5rem, 10vw, 4.4rem);
+  margin: 10px 0;
+  text-shadow: 0 0 25px #ff38d1;
+}
+
+h2 {
+  color: #ffb9ed;
+}
+
+p {
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.card {
+  background: #ffffff0c;
+  border: 1px solid #ec65ff70;
+  border-radius: 25px;
+  padding: 25px 20px;
+  margin: 22px 0;
+  box-shadow: 0 0 25px #a020f020;
+  backdrop-filter: blur(8px);
+}
+
+.heart {
+  font-size: 75px;
+  display: inline-block;
+  animation: beat 1s infinite;
+  filter: drop-shadow(0 0 15px #ff32cb);
+}
+
+@keyframes beat {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.16); }
+}
+
+button {
+  border: 0;
+  border-radius: 30px;
+  padding: 14px 22px;
+  margin: 8px 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #25082f;
+  background: linear-gradient(100deg, #ff91df, #d8a5ff);
+  box-shadow: 0 0 20px #ed47d950;
+  transition: transform .2s;
+}
+
+button:hover {
+  transform: scale(1.04);
+}
+
+.secondary {
+  color: white;
+  background: #ffffff16;
+  border: 1px solid #e69cff;
+}
+
+.screen {
+  display: none;
+  animation: appear .6s ease;
+}
+
+.screen.active {
+  display: block;
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.small {
+  color: #d9b9ec;
+  font-size: .9rem;
+}
+
+.music {
+  width: 100%;
+  margin-top: 25px;
+  accent-color: #ff7add;
+}
+
+.floating {
+  position: fixed;
+  bottom: -40px;
+  z-index: 0;
+  pointer-events: none;
+  animation: floatUp 7s linear forwards;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(30deg);
+    opacity: 0;
+  }
+}
+
+footer {
+  color: #e4c3ff;
+  padding-top: 20px;
+}
+</style>
+</head>
+
+<body>
+<main>
+  <div class="small">✨ A little surprise for someone special ✨</div>
+  <h1>Dear Nana 💜</h1>
+  <div class="heart">💗</div>
+
+  <section id="s1" class="screen active">
+    <div class="card">
+      <h2>Attention, Miss Nana! 😂</h2>
+      <p>
+        You have officially been selected for a very serious
+        investigation.
+      </p>
+      <p>
+        Your crime? Being an amazing bestie and disturbing
+        my peace with your cuteness! 🤣💕
+      </p>
+      <p class="small">Please cooperate with the investigation.</p>
+      <button onclick="next(2)">Open the case file 🕵️‍♀️</button>
+    </div>
+  </section>
+
+  <section id="s2" class="screen">
+    <div class="card">
+      <h2>First question, Nana 😌</h2>
+      <p>Do you know how special you are to me?</p>
+      <button onclick="answerYes()">Of course! 😎</button>
+      <button class="secondary" onclick="answerNo()">Not really 🙈</button>
+      <p id="answer" aria-live="polite"></p>
+      <button id="continue2" hidden onclick="next(3)">Continue 💜</button>
+    </div>
+  </section>
+
+  <section id="s3" class="screen">
+    <div class="card">
+      <h2>Now, jokes aside 🥹💗</h2>
+      <p>
+        Nana, life is brighter with a bestie like you.
+        Thank you for the laughs, the memories, the random
+        conversations, and all the little things that make
+        our friendship special.
+      </p>
+      <p>
+        You deserve happiness, peace, success, and all the
+        beautiful things life has to offer. Never forget
+        how appreciated you are. 🫶🏽
+      </p>
+      <button onclick="next(4)">Awww, there's more? 🥹</button>
+    </div>
+  </section>
+
+  <section id="s4" class="screen">
+    <div class="card">
+      <h2>BREAKING NEWS! 🚨😂</h2>
+      <p>
+        Nana has been found guilty of making Elly smile
+        for absolutely no reason.
+      </p>
+      <p>
+        Sentence: lifetime membership in the Bestie Club.
+        No cancellation allowed! 🤣💜
+      </p>
+      <p>Appeal to the court?</p>
+      <button onclick="court()">I appeal! 😂</button>
+      <p id="courtReply" aria-live="polite"></p>
+      <button id="continue4" hidden onclick="next(5)">Final surprise 🎁</button>
+    </div>
+  </section>
+
+  <section id="s5" class="screen">
+    <div class="card">
+      <div class="heart">🫶🏽</div>
+      <h2>One last thing, Nana 💖</h2>
+      <p>
+        If this page made you smile, then my mission is
+        accomplished. If it made you blush, please remain
+        calm and drink some water. 😂🤣
+      </p>
+      <p>
+        Thank you for being YOU. Keep shining, keep laughing,
+        and keep being the wonderful bestie you are.
+      </p>
+      <h2>Elly appreciates Nana always. 💜</h2>
+      <p>Bestie status: permanently renewed! ♾️</p>
+      <button onclick="showFinal()">Tap for your final message 💌</button>
+      <div id="final" hidden>
+        <h2>Surprise, Nana! 🥹💕</h2>
+        <p>
+          Sending you a million virtual hugs, unlimited
+          laughter, and a lifetime supply of good vibes.
+          You are a whole blessing, bestie! 😇🥰
+        </p>
+        <p>Now smile for me! 😂💗</p>
+      </div>
+    </div>
+  </section>
+
+  <button class="secondary" id="back" hidden onclick="previous()">
+    ← Previous
+  </button>
+
+  <div class="card">
+    <h2>🎶 A little song for Nana</h2>
+    <p class="small">Your special song is ready. Tap the first surprise button to start it.</p>
+    <audio id="song" class="music" controls preload="none">
+      <source src="Heaven%20Remix.mp3" type="audio/mpeg">
+      Your browser does not support audio.
+    </audio>
+  </div>
+
+  <footer>
+    Made with friendship, laughter & a little mischief 😂💜<br>
+    <span class="small">From Elly, your partner in bestie crimes.</span>
+  </footer>
+</main>
+
+<script>
+let current = 1;
+let musicStarted = false;
+
+function startMusic() {
+  const song = document.getElementById("song");
+
+  if (song.paused) {
+    song.play().catch(() => {
+      alert("Tap the Play button 🎵 to start Nana's song!");
+    });
+  }
+}
+
+function next(number) {
+  startMusic();
+
+  document.getElementById("s" + current).classList.remove("active");
+  current = number;
+  document.getElementById("s" + current).classList.add("active");
+
+  document.getElementById("back").hidden = current === 1;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  hearts();
+}
+
+function previous() {
+  if (current > 1) {
+    document.getElementById("s" + current).classList.remove("active");
+    current--;
+    document.getElementById("s" + current).classList.add("active");
+    document.getElementById("back").hidden = current === 1;
+  }
+}
+
+function answerYes() {
+  document.getElementById("answer").textContent =
+    "Confidence level: 100%! 😂 But you're even more appreciated than you know. 💜";
+  document.getElementById("continue2").hidden = false;
+}
+
+function answerNo() {
+  document.getElementById("answer").textContent =
+    "Then allow this website to remind you: you're a wonderful bestie! 🥹💗";
+  document.getElementById("continue2").hidden = false;
+}
+
+function court() {
+  document.getElementById("courtReply").textContent =
+    "Appeal rejected! 😂 The court has ruled that you must keep being awesome.";
+  document.getElementById("continue4").hidden = false;
+}
+
+function showFinal() {
+  document.getElementById("final").hidden = false;
+  hearts();
+}
+
+function hearts() {
+  const symbols = ["💗", "💜", "💕", "✨", "🥰"];
+
+  for (let i = 0; i < 12; i++) {
+    const item = document.createElement("span");
+    item.className = "floating";
+    item.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+    item.style.left = Math.random() * 100 + "vw";
+    item.style.fontSize = (16 + Math.random() * 22) + "px";
+    item.style.animationDuration = (4 + Math.random() * 5) + "s";
+    document.body.appendChild(item);
+    setTimeout(() => item.remove(), 9000);
+  }
+}
+
+setInterval(() => {
+  if (Math.random() > 0.55) hearts();
+}, 5000);
+</script>
+</body>
+</html>
